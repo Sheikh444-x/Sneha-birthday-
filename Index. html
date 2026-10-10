@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#100c24">
+<title>A Little Late, But From the Heart — Sneha</title>
+<style>
+:root{--night:#100c24;--plum:#24133e;--pink:#ff9bc9;--gold:#ffdf9a;--lav:#c9bdff;--white:#fff8ff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;color:var(--white);font-family:ui-rounded,"Trebuchet MS",system-ui,-apple-system,sans-serif;text-align:center;background:radial-gradient(ellipse at 50% 12%,#5b3471 0,transparent 38%),radial-gradient(ellipse at 5% 80%,#3b1e53 0,transparent 32%),linear-gradient(155deg,#0c1028,var(--night) 55%,#1b1033);overflow-x:hidden}
+#sky,#confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+#sky{z-index:0}#confetti{z-index:4}
+.star{position:absolute;color:#ffe7ad;animation:twinkle 3s ease-in-out infinite;opacity:.7}
+@keyframes twinkle{0%,100%{opacity:.2;transform:scale(.7)}50%{opacity:1;transform:scale(1.2)}}
+main{position:relative;z-index:1;width:min(100%,760px);padding:28px 16px 38px;margin:auto}
+.eyebrow{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#d7cbff;font-weight:800}
+.gift{font-size:2.5rem;margin:17px 0 5px;filter:drop-shadow(0 0 18px #ff9bc977);animation:float 3s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-8px) rotate(4deg)}}
+h1{font-size:clamp(2.5rem,10vw,4.7rem);line-height:1.02;letter-spacing:-.055em;margin:8px 0 14px}
+h1 span{display:block;color:var(--gold);text-shadow:0 0 32px #ffca8170}
+.lead{font-size:1rem;line-height:1.8;color:#e4dcf7;max-width:530px;margin:0 auto}
+.panel{margin:28px auto 0;padding:23px 14px 24px;border:1px solid #ffffff24;border-radius:28px;background:linear-gradient(145deg,#ffffff12,#ffffff06);box-shadow:0 24px 75px #03020e66;backdrop-filter:blur(12px)}
+.panel-label{color:#d8cbff;font-size:.9rem;margin:0 0 3px}
+.cake-scene{position:relative;width:min(100%,370px);height:276px;margin:0 auto}
+.shadow{position:absolute;width:255px;height:22px;bottom:25px;left:50%;transform:translateX(-50%);border-radius:50%;background:#03020e99;filter:blur(7px)}
+.plate{position:absolute;width:274px;height:26px;bottom:31px;left:50%;transform:translateX(-50%);border-radius:50%;background:linear-gradient(#fff4ff,#b6a0e4 60%,#71549d);border:2px solid #fff2ff;box-shadow:0 8px 18px #05020c80}
+.cake{position:absolute;width:224px;height:91px;bottom:44px;left:50%;transform:translateX(-50%);border-radius:12px 12px 23px 23px;background:linear-gradient(90deg,#b83f83,#ffb2d5 26%,#f47eb5 70%,#a83278);box-shadow:inset 0 -11px #b84485,inset 0 7px #ffe0f0}
+.top{position:absolute;width:224px;height:47px;bottom:115px;left:50%;transform:translateX(-50%);border-radius:50%;background:linear-gradient(#fff8fd,#ffc5e0);border:2px solid #ffe9f5}
+.icing{position:absolute;width:224px;height:28px;bottom:105px;left:50%;transform:translateX(-50%)}
+.icing:before{content:"";position:absolute;top:0;left:0;width:100%;height:17px;border-radius:50%;background:#fff7fc}
+.drip{position:absolute;top:10px;width:19px;height:22px;border-radius:0 0 12px 12px;background:#fff7fc}
+.drip:nth-child(1){left:23px;height:26px}.drip:nth-child(2){left:64px;height:18px}.drip:nth-child(3){left:107px;height:26px}.drip:nth-child(4){left:151px;height:19px}.drip:nth-child(5){left:191px;height:25px}
+.cake-name{position:absolute;z-index:3;bottom:70px;left:0;right:0;font-size:1.13rem;font-weight:900;text-shadow:0 2px 5px #8b245e}
+.candle{position:absolute;z-index:5;bottom:151px;width:14px;height:59px;border:0;border-radius:4px;background:repeating-linear-gradient(135deg,#fff 0 7px,#a69aff 7px 13px);cursor:pointer;padding:0;box-shadow:0 0 12px #e2cbff50}
+.c1{left:calc(50% - 43px);transform:rotate(-5deg)}.c2{left:calc(50% - 7px);height:73px}.c3{left:calc(50% + 29px);transform:rotate(5deg)}
+.flame{position:absolute;left:-1px;top:-27px;width:16px;height:24px;border-radius:55% 45% 55% 45%;background:radial-gradient(ellipse at 50% 72%,#fffde1 0 17%,#ffd45b 31%,#ff963e 66%,#ff6b87);box-shadow:0 0 13px #ffbd55,0 0 27px #ff8c4c88;transform-origin:50% 100%;animation:flicker .85s ease-in-out infinite alternate}
+.flame:after{content:"";position:absolute;left:6px;top:8px;width:4px;height:9px;border-radius:50%;background:#fffef1}
+@keyframes flicker{to{transform:rotate(7deg) scale(1.08)}}
+.candle.out .flame{display:none}
+.smoke{display:none;position:absolute;top:-35px;left:2px;color:#ddd5ff;font-size:1.2rem;animation:smoke 1s ease-out forwards}
+.candle.out .smoke{display:block}
+@keyframes smoke{to{transform:translateY(-24px);opacity:0}}
+.hint{color:#f5e7ff;margin:0 0 12px;font-size:.95rem}
+button.action{font:inherit;font-size:.95rem;font-weight:800;border:0;border-radius:999px;padding:13px 20px;margin:6px 4px;min-height:48px;cursor:pointer;background:linear-gradient(110deg,var(--gold),var(--pink));color:#281333;box-shadow:0 8px 25px #ff8bc52b;transition:transform .2s}
+button.action:hover{transform:translateY(-2px)}
+button.action.ghost{background:#ffffff10;border:1px solid #ffffff3b;color:#fff;box-shadow:none}
+.message{display:none;text-align:left;max-width:570px;margin:23px auto 0;padding:24px 20px;border-radius:23px;border:1px solid #ffdb9b55;background:linear-gradient(135deg,#ffb6d710,#ffe39b0d);animation:reveal .75s ease both}
+.message.show{display:block}
+@keyframes reveal{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
+.message h2{text-align:center;font-size:clamp(1.55rem,6vw,2.2rem);color:var(--gold);margin:0 0 17px}
+.message p{font-size:.98rem;line-height:1.9;color:#f3ebff;margin:12px 0}
+.message .center{text-align:center}
+.message .sign{text-align:center;color:#ffafd2;font-weight:800;font-size:1.04rem}
+.apology{color:#ffdc9a!important;font-weight:750}
+.footer{color:#aaa4ce;font-size:.8rem;margin:23px 0 0}
+.confetti{position:absolute;top:-20px;width:8px;height:13px;animation:fall 3.5s linear forwards}
+@keyframes fall{to{transform:translate(var(--drift),110vh) rotate(740deg);opacity:.2}}
+@media(max-width:420px){main{padding:24px 12px 30px}.panel{padding:21px 9px}.cake-scene{transform:scale(.9);transform-origin:top center;height:249px}.lead{font-size:.94rem}.message{padding:21px 16px}.message p{font-size:.94rem}button.action{width:100%;max-width:290px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div id="sky" aria-hidden="true"></div><div id="confetti" aria-hidden="true"></div>
+<main>
+  <div class="eyebrow">A tiny surprise, made just for you</div>
+  <div class="gift" aria-hidden="true">🎁</div>
+  <h1>Happy Birthday,<span>Sneha ♡</span></h1>
+  <p class="lead">একটু দেরি হয়ে গেল, but I still wanted to make your birthday feel special. 💗<br>তোমার জন্য ছোট্ট একটা surprise বানিয়েছি… ready?</p>
+
+  <section class="panel">
+    <p class="panel-label">A little birthday moment ✨</p>
+    <p class="hint" id="hint">Close your eyes, make a wish, and tap the candles 🕯️</p>
+    <div class="cake-scene" aria-label="Birthday cake with three candles">
+      <div class="shadow"></div><div class="plate"></div><div class="cake"></div><div class="top"></div>
+      <div class="icing"><i class="drip"></i><i class="drip"></i><i class="drip"></i><i class="drip"></i><i class="drip"></i></div>
+      <button class="candle c1" aria-label="Blow out first candle"><span class="flame"></span><span class="smoke">〰</span></button>
+      <button class="candle c2" aria-label="Blow out second candle"><span class="flame"></span><span class="smoke">〰</span></button>
+      <button class="candle c3" aria-label="Blow out third candle"><span class="flame"></span><span class="smoke">〰</span></button>
+      <div class="cake-name">Sneha ♡</div>
+    </div>
+    <p id="instructions" class="hint">Tap the candles one by one, or use the button below.</p>
+    <button class="action" id="blow">Blow out the candles ✨</button>
+    <button class="action ghost" id="open">One little message for you 💌</button>
+
+    <article class="message" id="message" aria-live="polite">
+      <h2>For you, Sneha 💌</h2>
+      <p class="apology">First of all, I’m sorry this wish is a little late. 🥹</p>
+      <p>I know your birthday was yesterday, and I should’ve wished you on time. I’m late by a day, but I didn’t want to let the moment pass without wishing you properly.</p>
+      <p>Happy Birthday, Sneha! 🥳💗 দোয়া করি তোমার নতুন বছরটা অনেক সুন্দর হোক—মন ভরে হাসার মতো মুহূর্ত আসুক, তোমার ইচ্ছেগুলো এক এক করে পূরণ হোক, আর জীবনে এমন অনেক মানুষ থাকুক যারা তোমাকে সত্যিই value করে।</p>
+      <p>সব দিন perfect যাবে এমন না, but I hope even on the difficult days, you’ll find a reason to smile and remember how special you are. নিজের যত্ন নিও, নিজের মতো করে এগিয়ে যেও, আর তোমার হাসিটা ধরে রেখো। 🌷</p>
+      <p>Late wish বলে wish-টা ছোট করে দিতে চাইনি—তাই এই little surprise, just for you. আশা করি এটা দেখে তোমার মুখে একটু হলেও হাসি আসবে. 😊</p>
+      <p class="center">May this year bring you peace, happiness, good people, and beautiful memories. ✨</p>
+      <p class="sign">Belated Happy Birthday, Sneha! ♡<br>Stay happy, stay blessed, and keep shining. 💖</p>
+    </article>
+  </section>
+  <p class="footer">A little late, but genuinely wishing you the best. ♡</p>
+</main>
+<script>
+(()=>{
+ const sky=document.getElementById('sky');
+ for(let i=0;i<48;i++){const s=document.createElement('span');s.className='star';s.textContent=i%4===0?'✦':'·';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.fontSize=(9+Math.random()*15)+'px';s.style.animationDelay=(Math.random()*3)+'s';sky.appendChild(s)}
+ const candles=[...document.querySelectorAll('.candle')], message=document.getElementById('message');
+ let celebrated=false;
+ function confetti(){const layer=document.getElementById('confetti'),colors=['#ff9bc9','#ffdf9a','#c9bdff','#9fe8d5','#fff8ff'];for(let i=0;i<115;i++){const p=document.createElement('i');p.className='confetti';p.style.left=Math.random()*100+'%';p.style.background=colors[Math.floor(Math.random()*colors.length)];p.style.setProperty('--drift',(Math.random()*240-120)+'px');p.style.animationDelay=(Math.random()*.75)+'s';p.style.borderRadius=Math.random()>.5?'50%':'2px';layer.appendChild(p);setTimeout(()=>p.remove(),4500)}}
+ function celebrate(){document.getElementById('hint').textContent='Wish made, Sneha! ✨ তোমার জন্য অনেক ভালোবাসা আর শুভকামনা।';document.getElementById('instructions').textContent='Candles out! Your little birthday message is ready 💖';message.classList.add('show');if(!celebrated){confetti();celebrated=true}}
+ function extinguish(c){if(c.classList.contains('out'))return;c.classList.add('out');if(candles.every(x=>x.classList.contains('out')))celebrate();else{const n=candles.filter(x=>!x.classList.contains('out')).length;document.getElementById('instructions').textContent=`${n} candle${n===1?'':'s'} left — one more little wish! ✨`}}
+ candles.forEach(c=>c.addEventListener('click',()=>extinguish(c)));
+ document.getElementById('blow').addEventListener('click',()=>{candles.forEach(c=>c.classList.add('out'));celebrate()});
+ document.getElementById('open').addEventListener('click',()=>{message.classList.add('show');if(!celebrated){confetti();celebrated=true}message.scrollIntoView({behavior:'smooth',block:'nearest'})});
+})();
+</script>
+</body>
+</html>
