@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Surprise for Sneha 💌</title>
+<style>
+:root{--pink:#ffb8cf;--rose:#ff6f9e;--cream:#fff8f1;--ink:#4a2638}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:Georgia,'Times New Roman',serif;color:var(--ink);background:radial-gradient(circle at top,#fff0f6,#f9dce9 55%,#e9c8dd);overflow-x:hidden}
+.screen{min-height:100vh;display:none;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:24px 18px;position:relative;overflow:hidden}
+.screen.active{display:flex;animation:appear .65s ease}
+@keyframes appear{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.sparkles{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(#fff 1.5px,transparent 2px),radial-gradient(#fff9 1px,transparent 2px);background-size:73px 73px,113px 113px;background-position:0 0,35px 22px;opacity:.65}
+h1{font-size:clamp(2rem,7vw,3.1rem);margin:10px 0;color:#a62f62}
+p{line-height:1.65}
+.eyebrow{letter-spacing:3px;text-transform:uppercase;font:600 .75rem Arial,sans-serif;color:#b34a76}
+.envelope-wrap{width:min(82vw,340px);height:245px;position:relative;margin:30px auto 22px;cursor:pointer;filter:drop-shadow(0 18px 18px #a74e7133);transition:transform .25s}
+.envelope-wrap:hover{transform:translateY(-5px) rotate(-1deg)}
+.envelope{position:absolute;bottom:0;width:100%;height:180px;background:#f7a9c4;border-radius:8px;overflow:visible}
+.envelope:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,#ffcee0,#f08bb0);clip-path:polygon(0 0,50% 58%,100% 0,100% 100%,0 100%);z-index:3;border-radius:8px}
+.flap{position:absolute;top:0;left:0;width:100%;height:140px;background:#ffd8e6;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .7s;z-index:4}
+.seal{position:absolute;z-index:5;left:50%;top:95px;transform:translateX(-50%);width:52px;height:52px;border-radius:50%;background:#c83e71;color:white;display:grid;place-items:center;font-size:25px;box-shadow:0 3px 8px #8a214533}
+.letter-peek{position:absolute;z-index:2;bottom:36px;left:8%;width:84%;height:150px;background:#fffaf5;border-radius:5px;display:flex;align-items:center;justify-content:center;color:#b23f70;font-size:1.5rem;font-style:italic}
+.tap-hint{font:600 .9rem Arial,sans-serif;color:#8f3b61;animation:pulse 1.5s infinite}
+@keyframes pulse{50%{opacity:.55;transform:scale(1.02)}}
+button{border:0;border-radius:999px;padding:14px 23px;background:#b8346b;color:white;font:600 1rem Arial,sans-serif;box-shadow:0 8px 18px #a52c5b2b;cursor:pointer;margin:8px}
+button.secondary{background:#fff7fb;color:#a52d60;border:1px solid #e9a0bd}
+.candle-card,.letter-card{position:relative;z-index:1;width:min(92vw,570px);padding:25px 22px;border:1px solid #fff9;border-radius:25px;background:#fff9f2e8;box-shadow:0 20px 60px #9d41651b}
+.candle-stage{height:260px;display:flex;align-items:flex-end;justify-content:center;gap:22px;padding-bottom:15px}
+.candle{width:34px;height:125px;border-radius:7px 7px 4px 4px;position:relative;cursor:pointer;background:repeating-linear-gradient(45deg,#f16f9d 0 10px,#fff0f6 10px 20px);box-shadow:inset -5px 0 8px #a32f5622,0 5px 10px #8b31521a;transition:opacity .3s}
+.candle:nth-child(2){height:155px;background:repeating-linear-gradient(45deg,#c3a0ed 0 10px,#fff0f6 10px 20px)}
+.candle:nth-child(3){height:115px;background:repeating-linear-gradient(45deg,#f4bd58 0 10px,#fff5d9 10px 20px)}
+.flame{position:absolute;top:-36px;left:7px;width:20px;height:32px;background:radial-gradient(ellipse at 50% 68%,#fff7a4 0 20%,#ffbd4b 42%,#ff6a3d 72%,transparent 74%);border-radius:50% 50% 45% 45%;transform:rotate(4deg);filter:drop-shadow(0 0 9px #ff9d37);animation:flicker .75s infinite alternate}
+@keyframes flicker{from{transform:rotate(-5deg) scale(.96)}to{transform:rotate(5deg) scale(1.06)}}
+.candle.out .flame{display:none}.candle.out:after{content:"";position:absolute;top:-13px;left:15px;width:5px;height:13px;background:#9c7b86;border-radius:50%;opacity:.7}
+.candle-note{font: .88rem Arial,sans-serif;color:#88536b}
+.letter-card{text-align:left;padding:clamp(22px,5vw,38px);max-height:none}
+.letter-card h1{text-align:center;font-size:clamp(1.8rem,6vw,2.6rem)}
+.letter-card .intro{text-align:center;color:#a33b68;font-style:italic}
+.letter-card p{font-size:1.02rem}
+.signature{text-align:right;color:#a33b68;font-style:italic;font-size:1.2rem}
+.heart{font-size:2rem;animation:pulse 1.4s infinite}
+.hidden{display:none!important}
+.confetti{position:fixed;top:-15px;width:9px;height:13px;z-index:20;pointer-events:none;animation:fall 3.4s linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(700deg);opacity:.2}}
+@media(max-height:700px){.screen{padding-top:15px;padding-bottom:15px}.candle-stage{height:220px}.envelope-wrap{margin:15px auto}}
+</style>
+</head>
+<body>
+<section class="screen active" id="envelopeScreen">
+ <div class="sparkles"></div>
+ <div class="eyebrow">A little something, just for you</div>
+ <h1>For Sneha 💌</h1>
+ <p>I have a little surprise waiting inside…</p>
+ <div class="envelope-wrap" role="button" tabindex="0" aria-label="Open the letter" onclick="openEnvelope()" onkeydown="if(event.key==='Enter'||event.key===' '){openEnvelope()}">
+  <div class="letter-peek">A letter for you ♡</div>
+  <div class="envelope"><div class="flap" id="flap"></div><div class="seal">♥</div></div>
+ </div>
+ <div class="tap-hint">♡ Tap the envelope to open ♡</div>
+</section>
+<section class="screen" id="candleScreen">
+ <div class="sparkles"></div>
+ <div class="candle-card">
+  <div class="eyebrow">Make a little wish</div>
+  <h1>One wish, just for you ✨</h1>
+  <p>Tap each candle to blow it out. Make a wish for your new year!</p>
+  <div class="candle-stage" id="candles">
+   <div class="candle" role="button" tabindex="0" aria-label="Blow out candle one" onclick="blow(this)" onkeydown="if(event.key==='Enter'||event.key===' '){blow(this)}"><span class="flame"></span></div>
+   <div class="candle" role="button" tabindex="0" aria-label="Blow out candle two" onclick="blow(this)" onkeydown="if(event.key==='Enter'||event.key===' '){blow(this)}"><span class="flame"></span></div>
+   <div class="candle" role="button" tabindex="0" aria-label="Blow out candle three" onclick="blow(this)" onkeydown="if(event.key==='Enter'||event.key===' '){blow(this)}"><span class="flame"></span></div>
+  </div>
+  <div class="candle-note" id="candleNote">Tap all three flames to reveal your birthday letter 💗</div>
+  <button class="secondary hidden" id="finishButton" onclick="showLetter()">Open your birthday letter 💌</button>
+ </div>
+</section>
+<section class="screen" id="letterScreen">
+ <div class="sparkles"></div>
+ <article class="letter-card">
+  <div class="heart" style="text-align:center">💗 ✨ 💗</div>
+  <h1>Belated Happy Birthday, Sneha!</h1>
+  <p class="intro">A little late, but sent with love ♡</p>
+  <p>First of all, I’m sorry this wish is a little late. 🥹 I know your birthday was yesterday, and I should’ve wished you on time. I’m late by a day, but I didn’t want to let the moment pass without wishing you properly.</p>
+  <p><strong>Happy Birthday, Sneha! 🥳💗</strong> দোয়া করি তোমার নতুন বছরটা অনেক সুন্দর হোক—মন ভরে হাসার মতো মুহূর্ত আসুক, তোমার ইচ্ছেগুলো এক এক করে পূরণ হোক, আর জীবনে এমন অনেক মানুষ থাকুক যারা তোমাকে সত্যিই value করে।</p>
+  <p>সব দিন perfect যাবে এমন না, but I hope even on the difficult days, you’ll find a reason to smile and remember how special you are. নিজের যত্ন নিও, নিজের মতো করে এগিয়ে যেও, আর তোমার হাসিটা ধরে রেখো। 🌷</p>
+  <p>Late wish বলে wish-টা ছোট করে দিতে চাইনি—তাই এই little surprise, just for you. আশা করি এটা দেখে তোমার মুখে একটু হলেও হাসি আসবে. 😊</p>
+  <p>May this year bring you peace, happiness, good people, and beautiful memories. ✨</p>
+  <p><strong>Belated Happy Birthday, Sneha!</strong> ♡ Stay happy, stay blessed, and keep shining. 💖</p>
+  <p class="signature">With warm wishes, ♡</p>
+ </article>
+ <button onclick="location.reload()">Replay the surprise ↻</button>
+</section>
+<script>
+function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0)}
+function openEnvelope(){const flap=document.getElementById('flap');flap.style.transform='rotateX(180deg)';setTimeout(()=>show('candleScreen'),500)}
+function blow(el){if(el.classList.contains('out'))return;el.classList.add('out');const left=document.querySelectorAll('.candle:not(.out)').length;if(left===0){document.getElementById('candleNote').textContent='Wish made! 💫 Your letter is waiting…';document.getElementById('finishButton').classList.remove('hidden');confetti(45)}}
+function showLetter(){show('letterScreen');confetti(100)}
+function confetti(n){const colors=['#ff6f9e','#ffd166','#b89ae8','#8ed9c4','#fff'];for(let i=0;i<n;i++){const e=document.createElement('i');e.className='confetti';e.style.left=Math.random()*100+'vw';e.style.background=colors[Math.floor(Math.random()*colors.length)];e.style.animationDelay=Math.random()*1.5+'s';e.style.transform='rotate('+Math.random()*360+'deg)';document.body.appendChild(e);setTimeout(()=>e.remove(),5000)}}
+</script>
+</body>
+</html>
